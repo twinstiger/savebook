@@ -386,6 +386,7 @@ img{max-width:100%;display:block}
 .tool-page-centered{text-align:center}
 .tool-page-centered p{font-size:0.95rem;color:var(--text-muted);margin-bottom:1rem}
 .page-container{max-width:720px;padding:2rem 1.5rem}
+.page-container--wide{max-width:1100px;padding:2rem 1.5rem}
 
 /* ===== UNIFIED CAROUSEL ===== */
 .unified-carousel { margin: 1.5rem 0; position: relative; overflow:hidden }
