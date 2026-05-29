@@ -1,6 +1,6 @@
 {
  "name": "fh6guide",
- "assets": {
- "directory": "../../dist/fh6guide"
- }
+ "compatibility_date": "2026-05-28",
+ "compatibility_flags": ["nodejs_compat"],
+ "assets": { "directory": "../../dist/fh6guide" }
 }

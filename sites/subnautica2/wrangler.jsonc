@@ -1,6 +1,5 @@
 {
  "name": "subnautica2",
- "assets": {
- "directory": "../../dist/subnautica2"
- }
+ "compatibility_date": "2026-05-26",
+ "assets": { "directory": "../../dist/subnautica2" }
 }

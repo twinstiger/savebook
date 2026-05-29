@@ -1,6 +1,6 @@
 {
  "name": "savebook-main",
- "assets": {
- "directory": "../../dist/hub"
- }
+ "compatibility_date": "2026-05-29",
+ "compatibility_flags": ["nodejs_compat"],
+ "assets": { "directory": "../../dist/hub" }
 }

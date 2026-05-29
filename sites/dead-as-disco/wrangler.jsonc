@@ -1,6 +1,6 @@
 {
  "name": "dead-as-disco",
- "assets": {
- "directory": "../../dist/dead-as-disco"
- }
+ "compatibility_date": "2026-05-29",
+ "compatibility_flags": ["nodejs_compat"],
+ "assets": { "directory": "../../dist/dead-as-disco" }
 }
