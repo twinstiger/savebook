@@ -95,14 +95,50 @@ function injectMeta(html, site) {
   return out;
 }
 
-function fixPaths(html, siteName, isFileInPagesDir) {
-  const depth = getDepthFromHtmlPath(html, siteName);
+function getDepthFromHtmlPath(html, siteName) {
+  // For hub site with guides folder, we need to calculate depth based on actual file location
+  const match = html.match(/data-original-path="([^"]+)"/);
+  if (match) {
+    const filePath = match[1];
+    const destSiteDir = path.join(DIST, siteName);
+    const rel = path.relative(destSiteDir, path.dirname(filePath));
+    const parts = rel.split(path.sep).filter(p => p && p !== '');
+    return Math.max(0, parts.length);
+  }
+  return 0;
+}
+
+function fixPaths(html, siteName) {
+  // Calculate depth based on actual file location (not header include)
+  const htmlMatch = html.match(/data-original-path="([^"]+)"/);
+  let depth = 0;
+  if (htmlMatch) {
+    const filePath = htmlMatch[1];
+    const destSiteDir = path.join(DIST, siteName);
+    const rel = path.relative(destSiteDir, path.dirname(filePath));
+    const parts = rel.split(path.sep).filter(p => p && p !== '');
+    depth = Math.max(0, parts.length);
+  }
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
 
   let out = html;
-  // Only fix relative ../ paths that point to parent dirs
-  out = out.replace(/href="\.\.\//g, `href="${prefix}`);
-  out = out.replace(/src="\.\.\//g, `src="${prefix}`);
+  // Fix relative paths in injected includes (header/footer)
+  // These have paths relative to site root, need to be adjusted for file depth
+  // Only fix paths that don't start with http, /, #, or already have correct prefix
+  out = out.replace(/(href|src)="([^"#][^"]*)"/g, (match, attr, value) => {
+    // Skip if already absolute or external
+    if (value.startsWith('http') || value.startsWith('//') || value.startsWith('/') || value.startsWith('#')) {
+      return match;
+    }
+    // Skip if already has correct prefix (e.g., ./ for root, ../ for one level, etc.)
+    const currentPrefix = value.startsWith('./') ? './' : (value.startsWith('../') ? '../' : '');
+    if (currentPrefix === prefix) {
+      return match;
+    }
+    // Remove old prefix and add correct one
+    const cleanValue = value.replace(/^\.\.?\/?/, '');
+    return `${attr}="${prefix}${cleanValue}"`;
+  });
 
   return out;
 }
@@ -286,6 +322,7 @@ function processFile(filePath, siteName) {
       html = injectMeta(html, siteName);
       html = injectSharedLinks(html, filePath, siteName);
       html = injectIncludes(html, siteName, filePath);
+      html = fixPaths(html, siteName);  // Fix relative paths based on actual file location
       html = normalizeFooter(html, filePath, siteName);
 
       fs.writeFileSync(filePath, html, 'utf8');
