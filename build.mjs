@@ -108,40 +108,7 @@ function getDepthFromHtmlPath(html, siteName) {
   return 0;
 }
 
-function fixPaths(html, siteName) {
-  // Calculate depth based on actual file location (not header include)
-  const htmlMatch = html.match(/data-original-path="([^"]+)"/);
-  let depth = 0;
-  if (htmlMatch) {
-    const filePath = htmlMatch[1];
-    const destSiteDir = path.join(DIST, siteName);
-    const rel = path.relative(destSiteDir, path.dirname(filePath));
-    const parts = rel.split(path.sep).filter(p => p && p !== '');
-    depth = Math.max(0, parts.length);
-  }
-  const prefix = depth > 0 ? '../'.repeat(depth) : './';
-
-  let out = html;
-  // Fix relative paths in injected includes (header/footer)
-  // These have paths relative to site root, need to be adjusted for file depth
-  // Only fix paths that don't start with http, /, #, or already have correct prefix
-  out = out.replace(/(href|src)="([^"#][^"]*)"/g, (match, attr, value) => {
-    // Skip if already absolute or external
-    if (value.startsWith('http') || value.startsWith('//') || value.startsWith('/') || value.startsWith('#')) {
-      return match;
-    }
-    // Skip if already has correct prefix (e.g., ./ for root, ../ for one level, etc.)
-    const currentPrefix = value.startsWith('./') ? './' : (value.startsWith('../') ? '../' : '');
-    if (currentPrefix === prefix) {
-      return match;
-    }
-    // Remove old prefix and add correct one
-    const cleanValue = value.replace(/^\.\.?\/?/, '');
-    return `${attr}="${prefix}${cleanValue}"`;
-  });
-
-  return out;
-}
+// No path adjustment needed - header uses absolute paths starting with /
 
 /* ----------
    Shared Code Injection
@@ -229,18 +196,8 @@ function injectIncludes(html, siteName, filePath) {
 }
 
 function adjustLinks(content, prefix) {
-  // Only adjust href/src that are not absolute URLs (don't start with http, /, or #)
-  let adjusted = content;
-
-  // Adjust relative hrefs (href=" about.html" -> href="./about.html" etc)
-  adjusted = adjusted.replace(/href="(\.\/)?([^"']*\.html)"/g, (match, dot, path) => {
-    // If already has ./ or ../, leave it
-    if (dot) return match;
-    // Add ./
-    return `href="./${path}"`;
-  });
-
-  return adjusted;
+  // DON'T modify links here - fixPaths will handle it properly based on actual file depth
+  return content;
 }
 
 /* ----------
@@ -322,7 +279,6 @@ function processFile(filePath, siteName) {
       html = injectMeta(html, siteName);
       html = injectSharedLinks(html, filePath, siteName);
       html = injectIncludes(html, siteName, filePath);
-      html = fixPaths(html, siteName);  // Fix relative paths based on actual file location
       html = normalizeFooter(html, filePath, siteName);
 
       fs.writeFileSync(filePath, html, 'utf8');
