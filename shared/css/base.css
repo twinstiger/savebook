@@ -25,11 +25,13 @@
   --transition: 0.3s ease;
 
   /* Colors (Sites override these) */
-  --bg: #ffffff;
-  --bg-card: #f8f9fa;
-  --border: #e5e5e5;
-  --text: #333333;
-  --text-muted: #666666;
+  /* Default to dark theme */
+  --bg: #0f0f11;
+  --bg-card: #18181c;
+  --bg-secondary: #1f1f25;
+  --border: #2a2a35;
+  --text: #f0f0f5;
+  --text-muted: #8a8a9a;
   --accent: #ff2d78;
 
   /* Shadows */
