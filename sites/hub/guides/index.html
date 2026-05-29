@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaming Tips & Guides — GameHub</title>
-  <meta name="description" content="Browse all gaming tips and guides on GameHub — racing games, rhythm action, multiplayer, speedrunning, and more.">
+  <meta name="description" content="Browse all gaming guides on GameHub — Forza Horizon 6, Dead As Disco, Subnautica 2, and general gaming tips.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://savebook.net/guides/">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -15,7 +15,7 @@
   <header class="header">
     <div class="header-inner">
       <a href="../index.html" class="logo"><div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="18" r="3" stroke="#fff" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="#fff" stroke-width="2"/></svg></div><span class="logo-name">Game<span>Hub</span></span></a>
-      <nav class="nav-desktop"><ul><li><a href="../index.html">Home</a></li><li><a href="index.html" class="active">Gaming Guides ▾</a><ul class="dropdown"><li><a href="https://fh6.savebook.net" target="_blank" rel="noopener noreferrer">Forza Horizon 6</a></li><li><a href="https://disco.savebook.net" target="_blank" rel="noopener noreferrer">Dead As Disco</a></li><li><a href="https://subnautica2.savebook.net" target="_blank" rel="noopener noreferrer">Subnautica 2</a></li></ul></li><li><a href="../about.html">About</a></li></ul></nav>
+      <nav class="nav-desktop"><ul><li><a href="../index.html">Home</a></li><li><a href="index.html" class="active">Gaming Guides ▾</a><ul class="dropdown"><li><a href="index.html">All Guides</a></li><li><a href="https://fh6.savebook.net" target="_blank" rel="noopener noreferrer">Forza Horizon 6</a></li><li><a href="https://disco.savebook.net" target="_blank" rel="noopener noreferrer">Dead As Disco</a></li><li><a href="https://subnautica2.savebook.net" target="_blank" rel="noopener noreferrer">Subnautica 2</a></li></ul></li><li><a href="../about.html">About</a></li></ul></nav>
       <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -23,70 +23,331 @@
     <div class="container page-container">
       <div class="breadcrumb"><a href="../index.html">Home</a> <span>/</span> <span>Gaming Guides</span></div>
       <div class="tool-page-header">
-        <h1 class="tool-page-title">Gaming Tips & Guides</h1>
-        <p class="lead">Practical tips and strategies for every type of gamer.</p>
+        <h1 class="tool-page-title">All Gaming Guides</h1>
+        <p class="lead">30+ guides covering Forza Horizon 6, Dead As Disco, Subnautica 2, and general gaming tips.</p>
       </div>
-      <div class="guides-grid">
-        <a href="best-racing-games-2026" class="guide-card">
-          <div class="guide-icon">🏎️</div>
-          <h3 class="guide-title">Best Racing Games 2026</h3>
-          <p class="guide-desc">Top racing games to play this year, from FH6 Japan to F1 2026. Find the perfect racing experience.</p>
+
+      <style>
+        .guide-list { display: flex; flex-direction: column; gap: 1rem; }
+        .guide-row { display: flex; gap: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; transition: border-color 200ms, box-shadow 200ms; }
+        .guide-row:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .guide-row-img { width: 200px; height: 140px; flex-shrink: 0; overflow: hidden; position: relative; }
+        .guide-row-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 300ms; }
+        .guide-row:hover .guide-row-img img { transform: scale(1.05); }
+        .guide-row-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--bg-card)); }
+        .guide-row-body { padding: 1rem 1rem 1rem 0.5rem; display: flex; flex-direction: column; justify-content: center; gap: 0.375rem; }
+        .guide-row-meta { display: flex; gap: 0.75rem; align-items: center; }
+        .guide-row-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.5rem; border-radius: 9999px; background: rgba(255,45,120,0.1); color: var(--accent); border: 1px solid rgba(255,45,120,0.2); }
+        .guide-row-badge--fh6 { background: rgba(230,57,70,0.1); color: #e63946; border-color: rgba(230,57,70,0.2); }
+        .guide-row-badge--s2 { background: rgba(0,212,170,0.1); color: #00d4aa; border-color: rgba(0,212,170,0.2); }
+        .guide-row-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+        .guide-row-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+        @media (max-width: 600px) { .guide-row { flex-direction: column; } .guide-row-img { width: 100%; height: 160px; } .guide-row-img::after { background: linear-gradient(to top, var(--bg-card), transparent); } .guide-row-body { padding: 1rem; } }
+      </style>
+
+      <div class="guide-list">
+
+        <!-- FORZA HORIZON 6 -->
+        <a href="https://fh6.savebook.net/pages/guides/beginner-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/hero/hero.jpg" alt="Forza Horizon 6" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Beginner Guide: Start Your Japan Adventure</h2>
+            <p class="guide-row-desc">Controller setup, driving fundamentals, economy system, and best starter cars. 10-step checklist to start strong.</p>
+          </div>
         </a>
-        <a href="rhythm-action-games-guide" class="guide-card">
-          <div class="guide-icon">🎵</div>
-          <h3 class="guide-title">Rhythm Action Games Guide</h3>
-          <p class="guide-desc">Master rhythm-combat games like Dead As Disco and boost your score with advanced techniques.</p>
+
+        <a href="https://fh6.savebook.net/pages/guides/car-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/cars/car01.jpg" alt="FH6 Car List" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Complete Car List: All 2000+ Vehicles</h2>
+            <p class="guide-row-desc">Every car in Forza Horizon 6 Japan with specs, prices, and customization options. Find your perfect ride.</p>
+          </div>
         </a>
-        <a href="open-world-exploration-tips" class="guide-card">
-          <div class="guide-icon">🗺️</div>
-          <h3 class="guide-title">Open World Exploration Tips</h3>
-          <p class="guide-desc">Get the most out of vast open worlds like Subnautica 2. Find secrets and hidden content.</p>
+
+        <a href="https://fh6.savebook.net/pages/guides/track-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/tracks/city.jpg" alt="FH6 Track Guide" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Track Guide: Japan Roads & Courses</h2>
+            <p class="guide-row-desc">All circuits, touge routes, drag strips, and drift zones. Master every road in Japan.</p>
+          </div>
         </a>
-        <a href="cheats-vs-tips" class="guide-card">
-          <div class="guide-icon">💡</div>
-          <h3 class="guide-title">Cheats vs Tips</h3>
-          <p class="guide-desc">Understand the difference between cheats, exploits, and legitimate strategies.</p>
+
+        <a href="https://fh6.savebook.net/pages/guides/tuning-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/tuning/tuning01.jpg" alt="FH6 Tuning" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Tuning Guide: Drift & Speed Setup</h2>
+            <p class="guide-row-desc">Optimal tunes for drift, speed, and touge racing. Aerodynamics, suspension, and tire pressure explained.</p>
+          </div>
         </a>
-        <a href="game-community-guide" class="guide-card">
-          <div class="guide-icon">👥</div>
-          <h3 class="guide-title">Game Community Guide</h3>
-          <p class="guide-desc">Join Discord servers, Reddit communities, and find teammates for your favorite games.</p>
+
+        <a href="https://fh6.savebook.net/pages/guides/barn-finds-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/barn/barn01.jpg" alt="FH6 Barn Finds" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Barn Finds Guide: Hidden Cars Locations</h2>
+            <p class="guide-row-desc">All barn find locations with maps and tips for unlocking rare and classic vehicles.</p>
+          </div>
         </a>
-        <a href="speedrunning-basics" class="guide-card">
-          <div class="guide-icon">⚡</div>
-          <h3 class="guide-title">Speedrunning Basics</h3>
-          <p class="guide-desc">Learn the fundamentals of speedrunning — routing, glitches, and practice techniques.</p>
+
+        <a href="https://fh6.savebook.net/pages/guides/collectibles-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://fh6.savebook.net/images/collect/collect01.jpg" alt="FH6 Collectibles" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--fh6">Forza Horizon 6</span></div>
+            <h2 class="guide-row-title">Collectibles Guide: All 150+ Collectibles</h2>
+            <p class="guide-row-desc">Bonus boards, drift zones, danger signs, and story-related collectibles with exact locations.</p>
+          </div>
         </a>
-        <a href="achievement-hunting-guide" class="guide-card">
-          <div class="guide-icon">🏆</div>
-          <h3 class="guide-title">Achievement Hunting Guide</h3>
-          <p class="guide-desc">Tips for completing difficult achievements and platinum trophies across platforms.</p>
+
+        <!-- DEAD AS DISCO -->
+        <a href="https://disco.savebook.net/pages/guides/beginner.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://disco.savebook.net/images/character-dancer-hide.jpg" alt="Dead As Disco" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Dead As Disco</span></div>
+            <h2 class="guide-row-title">Beginner Guide: Rhythm-Combat Basics</h2>
+            <p class="guide-row-desc">Controls, Beat Sync system, survival tips, and how to survive your first night as a rock ghost.</p>
+          </div>
         </a>
-        <a href="indie-vs-aaa-games" class="guide-card">
-          <div class="guide-icon">🎮</div>
-          <h3 class="guide-title">Indie vs AAA Games</h3>
-          <p class="guide-desc">Compare indie and AAA games. Learn when to invest time and budget in each type.</p>
+
+        <a href="https://disco.savebook.net/pages/guides/walkthrough.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://disco.savebook.net/images/story-screenshot.jpg" alt="Dead As Disco Walkthrough" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Dead As Disco</span></div>
+            <h2 class="guide-row-title">Complete Story Walkthrough</h2>
+            <p class="guide-row-desc">Chapter-by-chapter walkthrough for all 5 night episodes. Beat every Idol and unlock all endings.</p>
+          </div>
         </a>
-        <a href="new-player-getting-started" class="guide-card">
-          <div class="guide-icon">🌟</div>
-          <h3 class="guide-title">Getting Started Guide</h3>
-          <p class="guide-desc">New to gaming? Start here with platform and game recommendations for beginners.</p>
+
+        <a href="https://disco.savebook.net/pages/guides/moves.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://disco.savebook.net/images/dude-rocking-out.png" alt="Dead As Disco Moves" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Dead As Disco</span></div>
+            <h2 class="guide-row-title">Moves & Combos: Full Move List</h2>
+            <p class="guide-row-desc">All guitar moves, attack combos, and Beat Sync techniques. Chain moves for maximum score.</p>
+          </div>
         </a>
-        <a href="game-saves-backup-guide" class="guide-card">
-          <div class="guide-icon">💾</div>
-          <h3 class="guide-title">Game Saves Backup Guide</h3>
-          <p class="guide-desc">Protect your progress with cloud and local backup strategies for all platforms.</p>
+
+        <a href="https://disco.savebook.net/pages/guides/characters.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://disco.savebook.net/images/char-select.jpg" alt="Dead As Disco Characters" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Dead As Disco</span></div>
+            <h2 class="guide-row-title">Characters & Bosses Guide</h2>
+            <p class="guide-row-desc">All playable characters, move sets, and detailed strategies for all 5 Idol bosses.</p>
+          </div>
         </a>
-        <a href="controller-vs-keyboard" class="guide-card">
-          <div class="guide-icon">⌨️</div>
-          <h3 class="guide-title">Controller vs Keyboard</h3>
-          <p class="guide-desc">Which input device is best for different game genres — FPS, racing, fighting, and more.</p>
+
+        <a href="https://disco.savebook.net/pages/guides/secrets.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://disco.savebook.net/images/doll-poster.jpg" alt="Dead As Disco Secrets" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Dead As Disco</span></div>
+            <h2 class="guide-row-title">Secrets & Easter Eggs</h2>
+            <p class="guide-row-desc">Hidden areas, secret characters, unlock requirements, and all easter eggs discovered so far.</p>
+          </div>
         </a>
-        <a href="online-multiplayer-tips" class="guide-card">
-          <div class="guide-icon">🌐</div>
-          <h3 class="guide-title">Online Multiplayer Tips</h3>
-          <p class="guide-desc">From network setup to advanced techniques for playing with friends online.</p>
+
+        <!-- SUBNAUTICA 2 -->
+        <a href="https://subnautica2.savebook.net/pages/guides/creature-bestiary.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/hero-main.jpg" alt="Subnautica 2 Creatures" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Creature Bestiary: 51+ Creatures</h2>
+            <p class="guide-row-desc">Complete creature database with behavior patterns, threat levels, and biomod compatibility.</p>
+          </div>
         </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/biome-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/wiki-hero-img.jpeg" alt="Subnautica 2 Biomes" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Biome Guide: 7 Biomes Explored</h2>
+            <p class="guide-row-desc">Every biome in Subnautica 2 with resources, dangers, and recommended equipment loadouts.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/vehicle-database.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/vehicle_tadpole.png" alt="Subnautica 2 Vehicles" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Vehicle Database & Upgrades</h2>
+            <p class="guide-row-desc">All vehicles, submarines, and their upgrade paths. Seamoth, Prawn, Cyclops, and more.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/biomod-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/jian_ting.png" alt="Subnautica 2 Biomods" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Biomod Guide: 12 Biomods</h2>
+            <p class="guide-row-desc">All 12 Biomods with crafting recipes, effects, and creature compatibility information.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/story-walkthrough.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/202504252249237555.jpg" alt="Subnautica 2 Story" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Story Walkthrough & Ending Guide</h2>
+            <p class="guide-row-desc">Complete story walkthrough from landing on Proteus Planet to the final resolution.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/coop-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/vehicle_cyclops.png" alt="Subnautica 2 Co-op" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Co-op Guide: Multiplayer Setup</h2>
+            <p class="guide-row-desc">How to set up and play Subnautica 2 with friends. Server hosting and crossplay tips.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/base-building.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/hero-main.jpg" alt="Subnautica 2 Base Building" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Base Building Guide</h2>
+            <p class="guide-row-desc">Construction tips, best base locations, module layouts, and power management strategies.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/survival-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/wiki-hero-img.jpeg" alt="Subnautica 2 Survival" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Survival Guide: Food, Water & Oxygen</h2>
+            <p class="guide-row-desc">Stay alive longer with food sources, water generation, and oxygen management tips.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/item-database.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/vehicle_tadpole.png" alt="Subnautica 2 Items" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">Item Database: All Resources & Equipment</h2>
+            <p class="guide-row-desc">Complete list of all resources, crafting materials, and equipment in Subnautica 2.</p>
+          </div>
+        </a>
+
+        <a href="https://subnautica2.savebook.net/pages/guides/ea-core-guide.html" target="_blank" rel="noopener noreferrer" class="guide-row">
+          <div class="guide-row-img"><img src="https://subnautica2.savebook.net/images/jian_ting.png" alt="Subnautica 2 EA" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge guide-row-badge--s2">Subnautica 2</span></div>
+            <h2 class="guide-row-title">EA Core Guide: Early Access Content</h2>
+            <p class="guide-row-desc">What is included in Early Access, planned updates, and how to provide feedback to the developers.</p>
+          </div>
+        </a>
+
+        <!-- GENERAL GAMING TIPS -->
+        <a href="best-racing-games-2026" class="guide-row">
+          <div class="guide-row-img"><img src="../images/city.jpg" alt="Racing Games" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Best Racing Games 2026</h2>
+            <p class="guide-row-desc">Top racing games to play this year, from Forza Horizon 6 Japan to F1 2026. Find the perfect racing experience.</p>
+          </div>
+        </a>
+
+        <a href="rhythm-action-games-guide" class="guide-row">
+          <div class="guide-row-img"><img src="../images/story-screenshot.jpg" alt="Rhythm Action" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Rhythm Action Games Guide</h2>
+            <p class="guide-row-desc">Master rhythm-combat games like Dead As Disco and boost your score with advanced techniques.</p>
+          </div>
+        </a>
+
+        <a href="open-world-exploration-tips" class="guide-row">
+          <div class="guide-row-img"><img src="../images/subnautica2-hero.jpg" alt="Open World" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Open World Exploration Tips</h2>
+            <p class="guide-row-desc">Get the most out of vast open worlds like Subnautica 2. Find secrets and hidden content.</p>
+          </div>
+        </a>
+
+        <a href="cheats-vs-tips" class="guide-row">
+          <div class="guide-row-img"><img src="../images/char-select.jpg" alt="Cheats vs Tips" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Cheats vs Tips: Know the Difference</h2>
+            <p class="guide-row-desc">Understand the difference between cheats, exploits, and legitimate strategies for each game type.</p>
+          </div>
+        </a>
+
+        <a href="game-community-guide" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss01.jpg" alt="Gaming Community" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Game Community Guide</h2>
+            <p class="guide-row-desc">Join Discord servers, Reddit communities, and find teammates for your favorite games.</p>
+          </div>
+        </a>
+
+        <a href="speedrunning-basics" class="guide-row">
+          <div class="guide-row-img"><img src="../images/shanlu.jpg" alt="Speedrunning" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Speedrunning Basics</h2>
+            <p class="guide-row-desc">Learn the fundamentals of speedrunning — routing, glitches, and practice techniques to set your first PB.</p>
+          </div>
+        </a>
+
+        <a href="achievement-hunting-guide" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss03.jpg" alt="Achievement Hunting" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Achievement Hunting Guide</h2>
+            <p class="guide-row-desc">Tips for completing difficult achievements and platinum trophies across all platforms.</p>
+          </div>
+        </a>
+
+        <a href="indie-vs-aaa-games" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss04.jpg" alt="Indie vs AAA" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Indie vs AAA Games: How to Choose</h2>
+            <p class="guide-row-desc">Compare indie and AAA games. Learn when to invest time and budget in each type.</p>
+          </div>
+        </a>
+
+        <a href="new-player-getting-started" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss05.jpg" alt="Getting Started" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">New Player Getting Started Guide</h2>
+            <p class="guide-row-desc">New to gaming? Start here with platform and game recommendations for beginners.</p>
+          </div>
+        </a>
+
+        <a href="game-saves-backup-guide" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss06.jpg" alt="Game Saves" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Game Save Backup Complete Guide</h2>
+            <p class="guide-row-desc">Protect your progress with cloud and local backup strategies for all platforms.</p>
+          </div>
+        </a>
+
+        <a href="controller-vs-keyboard" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss07.jpg" alt="Controller vs Keyboard" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Controller vs Keyboard: Complete Comparison</h2>
+            <p class="guide-row-desc">Which input device is best for different game genres — FPS, racing, fighting, and more.</p>
+          </div>
+        </a>
+
+        <a href="online-multiplayer-tips" class="guide-row">
+          <div class="guide-row-img"><img src="../images/ss08.jpg" alt="Online Multiplayer" loading="lazy"></div>
+          <div class="guide-row-body">
+            <div class="guide-row-meta"><span class="guide-row-badge">Gaming Tips</span></div>
+            <h2 class="guide-row-title">Online Multiplayer Gaming Complete Guide</h2>
+            <p class="guide-row-desc">From network setup to advanced techniques for playing with friends online.</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </main>
