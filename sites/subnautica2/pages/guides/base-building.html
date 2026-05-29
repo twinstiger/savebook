@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Building — Subnautica 2 Wiki</title>
+
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="author" content="SaveBook">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/base-building.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Base Building Guide — Subnautica 2 Wiki">
+  <meta property="og:description" content="Subnautica 2 base building: modules, power, water, and underwater base design.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/base-building.html">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:site_name" content="Subnautica 2 Wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Base Building Guide — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Subnautica 2 base building: modules, power, water, and underwater base design.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="description" content="Complete base building guide for Subnautica 2. Modules, power systems, decoration, optimal locations, and setup tips.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin: 1.5rem 0; }
+    .module-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; transition: all 0.2s; }
+    .module-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .module-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .module-name { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .module-recipe { font-size: 0.72rem; color: #5a8090; }
+    .module-power { font-size: 0.7rem; color: #f5a623; margin-top: 0.25rem; }
+    .power-bar { display: flex; gap: 0.5rem; margin: 1rem 0; background: var(--bg-secondary); border-radius: 8px; padding: 1rem; align-items: center; }
+    .power-source { flex: 1; text-align: center; }
+    .power-source-icon { font-size: 1.5rem; }
+    .power-source-name { font-size: 0.7rem; color: #5a8090; }
+    .location-tips { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="var(--accent)"/><text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text></svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+            <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="survival-guide.html">Survival Guide</a></li>
+              <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="item-database.html" class="nav-item">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav></div>
+  </header>
+  <main class="container" style="max-width:920px">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Base Building</span></div>
+    <h1 style="margin-bottom:0.5rem;">Base Building</h1>
+    <p style="color:#5a8090;margin-bottom:1.5rem;font-size:0.9rem;">Build, power, and organize your underwater home. Modules, power systems, and optimal locations.</p>
+
+    <!-- Power Systems -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+      <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:1rem;">⚡ Power Systems</div>
+      <div class="power-bar">
+        <div class="power-source">
+          <div class="power-source-icon">☀️</div>
+          <div class="power-source-name">Solar Panel</div>
+        </div>
+        <div class="power-source">
+          <div class="power-source-icon">🌋</div>
+          <div class="power-source-name">Thermal Plant</div>
+        </div>
+        <div class="power-source">
+          <div class="power-source-icon">🔋</div>
+          <div class="power-source-name">Bioreactor</div>
+        </div>
+        <div class="power-source">
+          <div class="power-source-icon">🌀</div>
+          <div class="power-source-name">Nuclear</div>
+        </div>
+      </div>
+      <p style="font-size:0.85rem;color:#5a8090;margin:0;">Solar: best near surface. Thermal: near thermal vents. Bioreactor: requires organic matter supply. Nuclear: endgame power, handles everything.</p>
+    </div>
+
+    <!-- Core Modules -->
+    <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:1rem;">🧱 Core Modules</div>
+    <div class="module-grid">
+      <div class="module-card"><div class="module-icon">🏠</div><div class="module-name">Compartment</div><div class="module-recipe">3× Titanium + 1× Glass</div><div class="module-power">No power required</div></div>
+      <div class="module-card"><div class="module-icon">🔧</div><div class="module-name">Fabricator</div><div class="module-recipe">2× Titanium + 1× Copper + 1× Gold</div><div class="module-power">⚡ Low power</div></div>
+      <div class="module-card"><div class="module-icon">🧊</div><div class="module-name">Bulkhead</div><div class="module-recipe">4× Titanium + 2× Lead</div><div class="module-power">No power required</div></div>
+      <div class="module-card"><div class="module-icon">🔌</div><div class="module-name">Power Outlet</div><div class="module-recipe">2× Copper + 1× Wire</div><div class="module-power">Connects modules to grid</div></div>
+      <div class="module-card"><div class="module-icon">☀️</div><div class="module-name">Solar Panel</div><div class="module-recipe">3× Titanium + 2× Glass + 1× Copper</div><div class="module-power">Generates: daytime surface</div></div>
+      <div class="module-card"><div class="module-icon">🌋</div><div class="module-name">Thermal Plant</div><div class="module-recipe">3× Titanium + 2× Copper + 1× Lead</div><div class="module-power">Generates: near thermal vents</div></div>
+      <div class="module-card"><div class="module-icon">🛏️</div><div class="module-name">Moonpool</div><div class="module-recipe">5× Titanium + 2× Glass + 1× Gold</div><div class="module-power">Vehicle docking</div></div>
+      <div class="module-card"><div class="module-icon">🔬</div><div class="module-name">Aquarium</div><div class="module-recipe">3× Glass + 2× Titanium</div><div class="module-power">No power required</div></div>
+    </div>
+
+    <!-- Location Tips -->
+    <div class="location-tips">
+      <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:1rem;">📍 Optimal Base Locations</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;margin-bottom:0.25rem;">🌸 Angel Comb (Recommended)</div>
+          <p style="font-size:0.78rem;color:#5a8090;margin:0;">Central location, resource-rich, safe zone. Great first base site. Close to key story objectives.</p>
+        </div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;margin-bottom:0.25rem;">🏚️ Welcome Center Area</div>
+          <p style="font-size:0.78rem;color:#5a8090;margin:0;">Power infrastructure nearby. Good for mid-game expansion. Moderate threat level.</p>
+        </div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;margin-bottom:0.25rem;">🕳️ Old Habitat (NW, 420m)</div>
+          <p style="font-size:0.78rem;color:#5a8090;margin:0;">Historical site with rare resources. Higher threat. Best as a forward outpost, not main base.</p>
+        </div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;margin-bottom:0.25rem;">🐙 Deep Zone (Endgame)</div>
+          <p style="font-size:0.78rem;color:#5a8090;margin:0;">Requires Pressure Adaptation. Only for late-game builds. High risk, huge rewards.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/header.js"></script>
+</body>
+</html>

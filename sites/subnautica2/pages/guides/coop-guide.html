@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co-op Guide — Subnautica 2 Wiki</title>
+
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="author" content="SaveBook">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/coop-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Co-op Guide — Subnautica 2 Wiki">
+  <meta property="og:description" content="Subnautica 2 multiplayer co-op: online play, crossplay, and session tips.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/coop-guide.html">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:site_name" content="Subnautica 2 Wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Co-op Guide — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Subnautica 2 multiplayer co-op: online play, crossplay, and session tips.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="description" content="Subnautica 2 4-player cross-platform co-op guide. Setup, role division, resource sharing, and advanced tips.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .coop-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.25); color: var(--accent); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: 9999px; margin-bottom: 1rem; }
+    .role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .role-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .role-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .role-name { font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .role-desc { font-size: 0.82rem; color: #a8c8d8; line-height: 1.6; }
+    .role-tasks { margin: 0.75rem 0; padding-left: 1rem; }
+    .role-tasks li { font-size: 0.78rem; color: #5a8090; margin-bottom: 0.25rem; }
+    .tip-highlight { background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.25); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    .tip-highlight-title { font-size: 0.75rem; font-weight: 700; color: #f5a623; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .setup-steps { counter-reset: step; }
+    .setup-step { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
+    .setup-step-num { counter-increment: step; flex-shrink: 0; width: 32px; height: 32px; background: var(--accent); color: #0a1628; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900; }
+    .setup-step-num::before { content: counter(step); }
+    .setup-step-content { flex: 1; }
+    .setup-step-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .setup-step-desc { font-size: 0.8rem; color: #a8c8d8; }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="var(--accent)"/><text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text></svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+            <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="survival-guide.html">Survival Guide</a></li>
+              <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="item-database.html" class="nav-item">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav></div>
+  </header>
+  <main class="container" style="max-width:920px">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Co-op Guide</span></div>
+    <span class="coop-badge">👥 4-Player Co-op</span>
+    <h1 style="margin-bottom:0.5rem;">Co-op Guide</h1>
+    <p style="color:#5a8090;margin-bottom:1.5rem;font-size:0.9rem;">Subnautica 2 supports up to 4 players on PC and Xbox cross-platform. Here's how to get the most out of multiplayer.</p>
+
+    <!-- Setup -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+      <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:1.25rem;">⚙️ Getting Started — Session Setup</div>
+      <div class="setup-steps">
+        <div class="setup-step">
+          <span class="setup-step-num"></span>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Host starts a new game or loads a save</div>
+            <div class="setup-step-desc">Only the host's game progress is saved. All players follow the host's story progress.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <span class="setup-step-num"></span>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Enable multiplayer in game settings</div>
+            <div class="setup-step-desc">Host goes to Settings → Multiplayer → "Enable Cross-Play" for Xbox + PC together.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <span class="setup-step-num"></span>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Share session code or friend invite</div>
+            <div class="setup-step-desc">Xbox: join via friends list or party chat. PC: Steam invites or session code.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <span class="setup-step-num"></span>
+          <div class="setup-step-content">
+            <div class="setup-step-title">分配角色分工</div>
+            <div class="setup-step-desc">Before diving, agree on who does what. Divide tasks to maximize efficiency.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roles -->
+    <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:1rem;">🎯 Recommended Team Roles</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-icon">🔧</div>
+        <div class="role-name">Builder / Engineer</div>
+        <div class="role-desc">Primary base builder. Keeps power running, expands base, places modules. Should have Habitat Builder.</div>
+        <ul class="role-tasks">
+          <li>Base construction and upgrades</li>
+          <li>Power management (Solar / Thermal)</li>
+          <li>Fabricator management</li>
+          <li>Scanner for blueprint discovery</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🎣</div>
+        <div class="role-name">Gatherer / Explorer</div>
+        <div class="role-desc">Resource gatherer and scout. Goes deep, collects materials, identifies new locations.</div>
+        <ul class="role-tasks">
+          <li>Deep dives for rare resources</li>
+          <li>Scout new POIs and biomes</li>
+          <li>Creature scanning for bestiary</li>
+          <li>Food and water supply for team</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">⚔️</div>
+        <div class="role-name">Combat / Defender</div>
+        <div class="role-desc">Handles predator threats. Has best equipment for deep zones and dangerous encounters.</div>
+        <ul class="role-tasks">
+          <li>Leviathan deterrence</li>
+          <li>Deep zone exploration with vehicle</li>
+          <li>Black Box and story item retrieval</li>
+          <li>Team protection in emergencies</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📋</div>
+        <div class="role-name">Navigator / Support</div>
+        <div class="role-desc">Tracks objectives, manages inventory, provides directions. Keeps team organized.</div>
+        <ul class="role-tasks">
+          <li>Story objective tracking</li>
+          <li>Base inventory management</li>
+          <li>Biomod and equipment upgrades</li>
+          <li>Map marking and communication</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-highlight">
+      <div class="tip-highlight-title">💡 Pro Tip: Resource Sharing</div>
+      <p style="font-size:0.85rem;color:#a8c8d8;margin:0;">Drop resources at a shared "depot" base that everyone can access. Assign one player (Builder) as depot manager. Keep personal inventories light — move everything important to the base storage ASAP. If a player dies, they drop everything nearby.</p>
+    </div>
+
+    <div class="tip-highlight">
+      <div class="tip-highlight-title">💡 Pro Tip: Death Recovery</div>
+      <p style="font-size:0.85rem;color:#a8c8d8;margin:0;">When a player dies, their items scatter at the death location. Other players can recover the items. Don't leave without picking up — especially if the deceased had rare resources or story items.</p>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:1.5rem;color:#5a8090;font-size:0.85rem;text-align:center;">
+      🎮 Co-op works on all chapters. Each player's Biomods are independent — team members can have different loadouts. Cross-platform (PC + Xbox) fully supported.
+    </div>
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/header.js"></script>
+</body>
+</html>

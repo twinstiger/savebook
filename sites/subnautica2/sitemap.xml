@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://subnautica2.savebook.net/</loc><priority>1.0</priority><changefreq>daily</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/survival-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/story-walkthrough.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/biomod-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/creature-bestiary.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/item-database.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/vehicle-database.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/biome-guide.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/base-building.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/guides/coop-guide.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/media/gallery.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/seasonal/ea-updates.html</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/legal/about.html</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/legal/privacy.html</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/legal/terms.html</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://subnautica2.savebook.net/pages/legal/contact.html</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+</urlset>

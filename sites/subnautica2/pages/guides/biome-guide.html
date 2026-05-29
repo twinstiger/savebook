@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biomes &amp; Map — Subnautica 2 Wiki</title>
+
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="author" content="SaveBook">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/biome-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Biome Guide — Subnautica 2 Wiki">
+  <meta property="og:description" content="Subnautica 2 biomes: Proteus depths, hydrothermal vents, resources and threats.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/biome-guide.html">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:site_name" content="Subnautica 2 Wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Biome Guide — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Subnautica 2 biomes: Proteus depths, hydrothermal vents, resources and threats.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="description" content="Complete biome and map guide for Subnautica 2. 7 POIs with coordinates, resources, threat levels, and navigation.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .biome-map { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .biome-map-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; }
+    .biome-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .biome-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.2s; }
+    .biome-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .biome-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .biome-name { font-size: 0.95rem; font-weight: 800; }
+    .biome-coord { font-size: 0.7rem; color: var(--accent); font-family: monospace; }
+    .biome-depth { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.5rem; }
+    .depth-shallow { color: #00d4aa; background: rgba(0,212,170,0.12); border: 1px solid rgba(0,212,170,0.3); }
+    .depth-mid { color: #f5a623; background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3); }
+    .depth-deep { color: #e63946; background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.3); }
+    .biome-resources { font-size: 0.78rem; color: #a8c8d8; margin: 0.5rem 0; }
+    .biome-threat { font-size: 0.75rem; font-weight: 600; }
+    .threat-safe { color: #00d4aa; }
+    .threat-cautious { color: #f5a623; }
+    .threat-danger { color: #e63946; }
+    .compass { width: 120px; height: 120px; background: var(--bg-secondary); border-radius: 50%; border: 2px solid var(--border); margin: 1.5rem auto; position: relative; display: flex; align-items: center; justify-content: center; }
+    .compass::before { content: 'N'; position: absolute; top: 8px; font-size: 0.7rem; font-weight: 900; color: var(--accent); }
+    .pod-marker { position: absolute; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; color: #0a1628; font-weight: 900; }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="var(--accent)"/><text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text></svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+            <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="survival-guide.html">Survival Guide</a></li>
+              <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="item-database.html" class="nav-item">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav></div>
+  </header>
+  <main class="container" style="max-width:1100px">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Biomes &amp; Map</span></div>
+    <h1 style="margin-bottom:0.25rem;">Biomes &amp; Map</h1>
+    <p style="color:#5a8090;margin-bottom:1rem;font-size:0.9rem;">EA v1.0 — 2 primary biomes, 7 points of interest. Coordinates relative to your pod (0,0).</p>
+
+    <div class="biome-map">
+      <div><img src="../../images/hero-main.jpg" alt="Proteus Planet" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:1rem;opacity:0.4;"></div>
+      <div class="biome-map-title">🗺️ Points of Interest — Proteus Planet (EA v1.0)</div>
+      <div style="text-align:center;color:#5a8090;font-size:0.85rem;margin-bottom:1rem;">● = Your Pod &nbsp;&nbsp; ◉ = Key Locations</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🌊 Starting Zone</span>
+            <span class="biome-coord">(0, 0)</span>
+          </div>
+          <span class="biome-depth depth-shallow">0-50m Shallow</span>
+          <p class="biome-resources">Resources: Titanium, Water Slugs, Copper, Quartz</p>
+          <p class="biome-threat threat-safe">⚠️ Threat: Safe</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🌸 Angel Comb</span>
+            <span class="biome-coord">(~160m NE)</span>
+          </div>
+          <span class="biome-depth depth-shallow">40-80m Shallow</span>
+          <p class="biome-resources">Resources: Quartz, Silver, Lucifer Rotsacs. Unlock: Digest Biomod.</p>
+          <p class="biome-threat threat-safe">⚠️ Threat: Safe</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🏚️ Welcome Center</span>
+            <span class="biome-coord">(~85m SE)</span>
+          </div>
+          <span class="biome-depth depth-mid">50-120m Mid-depth</span>
+          <p class="biome-resources">Power modules, Scanner fragments, Habitat Builder blueprints.</p>
+          <p class="biome-threat threat-cautious">⚠️ Threat: Cautious — aggressive creatures possible</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🏕️ Camp One</span>
+            <span class="biome-coord">(~150m S)</span>
+          </div>
+          <span class="biome-depth depth-mid">80-140m Mid-depth</span>
+          <p class="biome-resources">Old structures, Titanium, Copper, advance equipment caches.</p>
+          <p class="biome-threat threat-cautious">⚠️ Threat: Cautious</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🕳️ Old Habitat</span>
+            <span class="biome-coord">(~420m NW)</span>
+          </div>
+          <span class="biome-depth depth-mid">100-180m Mid-depth</span>
+          <p class="biome-resources">Historical site, rare resources, story progression items.</p>
+          <p class="biome-threat threat-cautious">⚠️ Threat: Cautious</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">📡 Bunker (Chap. Signal)</span>
+            <span class="biome-coord">(~250m SE)</span>
+          </div>
+          <span class="biome-depth depth-mid">80-150m Mid-depth</span>
+          <p class="biome-resources">Black Box signals, story-critical items, advanced blueprints.</p>
+          <p class="biome-threat threat-danger">⚠️ Threat: Dangerous — Leviathan encounters likely</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🌀 Wander Signal</span>
+            <span class="biome-coord">(Deep zone)</span>
+          </div>
+          <span class="biome-depth depth-deep">200m+ Deep</span>
+          <p class="biome-resources">Wanderer ruins, Bloom Canker purification site, Heat Resistance unlock.</p>
+          <p class="biome-threat threat-danger">⚠️ Threat: Extreme — Leviathans active</p>
+        </div>
+        <div class="biome-card">
+          <div class="biome-header">
+            <span class="biome-name">🐙 Tadpole Pens</span>
+            <span class="biome-coord">(End of Ch.3)</span>
+          </div>
+          <span class="biome-depth depth-mid">120-200m Mid-depth</span>
+          <p class="biome-resources">Vehicle storage, advanced crafting, chapter completion.</p>
+          <p class="biome-threat threat-cautious">⚠️ Threat: Cautious</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:1rem;color:#5a8090;font-size:0.85rem;">
+      🗺️ <strong>EA Note:</strong> Interactive map and full biome depth data will be added as we explore further. Leviathan locations are dynamic — UE5 behavior tree means they respond to player actions, not fixed patrol routes. More biomes coming in Chapters 4-10.
+    </div>
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* ============================================
+   Savebook Shared - Base Styles
+   Reset, CSS Variables, Typography
+   ============================================ */
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* CSS Custom Properties (Sites override these) */
+:root {
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --transition: 0.3s ease;
+
+  /* Colors (Sites override these) */
+  --bg: #ffffff;
+  --bg-card: #f8f9fa;
+  --border: #e5e5e5;
+  --text: #333333;
+  --text-muted: #666666;
+  --accent: #ff2d78;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.2);
+}
+
+/* Base Typography */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Note: body styles are defined in each site's own CSS file */
+/* to ensure proper theming with site-specific dark/light modes */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p { margin-bottom: 1em; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Code */
+code, pre {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+code {
+  background: var(--bg-card);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background: var(--bg-card);
+}
+
+/* Container */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Visually Hidden (Accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

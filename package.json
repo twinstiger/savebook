@@ -1,0 +1,16 @@
+{
+  "name": "savebook",
+  "version": "1.0.0",
+  "description": "savebook.net - Game guides monorepo",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node dev.mjs",
+    "deploy": "npm run build && echo 'Sites built to dist/'"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "chokidar": "^5.0.0",
+    "playwright": "^1.60.0",
+    "serve": "^14.2.6"
+  }
+}

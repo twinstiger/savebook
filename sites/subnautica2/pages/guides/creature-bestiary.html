@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creature Bestiary — Subnautica 2 Wiki</title>
+
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="author" content="SaveBook">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/creature-bestiary.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Creature Bestiary — Subnautica 2 Wiki">
+  <meta property="og:description" content="51+ Subnautica 2 creatures: Leviathans, fauna danger levels, and biomod compatibility.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/creature-bestiary.html">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:site_name" content="Subnautica 2 Wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creature Bestiary — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="51+ Subnautica 2 creatures: Leviathans, fauna danger levels, and biomod compatibility.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="description" content="Complete creature bestiary for Subnautica 2. 51+ creatures tracked with behavior, threat level, habitat, and loot drops.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .bestiary-header { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin: 1.5rem 0; }
+    .bestiary-stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+    .bestiary-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); font-family: 'Orbitron', monospace; }
+    .bestiary-stat-label { font-size: 0.7rem; color: #5a8090; text-transform: uppercase; letter-spacing: 0.08em; }
+    .creature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .creature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
+    .creature-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .creature-img { width: 100%; height: 160px; object-fit: contain; background: var(--bg-secondary); padding: 0.5rem; }
+    .creature-body { padding: 1.25rem; }
+    .creature-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .creature-badge { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border-radius: 9999px; }
+    .badge-safe { color: #00d4aa; background: rgba(0,212,170,0.12); border: 1px solid rgba(0,212,170,0.3); }
+    .badge-cautious { color: #f5a623; background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3); }
+    .badge-danger { color: #e63946; background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.3); }
+    .badge-leviathan { color: #9b59b6; background: rgba(155,89,182,0.12); border: 1px solid rgba(155,89,182,0.3); }
+    .creature-name { font-size: 1rem; font-weight: 800; margin-bottom: 0.375rem; }
+    .creature-type { font-size: 0.75rem; color: #5a8090; margin-bottom: 0.75rem; }
+    .creature-meta { display: flex; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: #5a8090; }
+    .creature-meta span strong { color: var(--text); }
+    .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
+    .filter-btn { background: var(--bg-card); border: 1px solid var(--border); color: #5a8090; padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,170,0.08); }
+    .tab-bar { display: flex; gap: 0.5rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; flex-wrap: wrap; }
+    .tab-btn { background: none; border: none; color: #5a8090; padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-btn:hover { color: var(--text); }
+    .tab-bar::after { content: ""; display: table; clear: both; }
+    .tab-content { display: none; visibility: hidden; opacity: 0; transition: opacity 0.25s; position: relative; }
+    .tab-content.active { display: block; visibility: visible; opacity: 1; }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="var(--accent)"/><text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text></svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="survival-guide.html">Survival Guide</a></li>
+              <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="creature-bestiary.html" class="active">Creatures</a></li>
+          <li><a href="item-database.html" class="nav-item">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav></div>
+  </header>
+  <main class="container" style="max-width:1100px">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Creature Bestiary</span></div>
+
+    
+    <p style="color:#5a8090;font-size:0.9rem;margin-bottom:0;">EA v1.0 — 51+ creatures tracked. Filter by type or threat level.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Herbivore</button>
+      <button class="filter-btn">Carnivore</button>
+      <button class="filter-btn">Passive</button>
+      <button class="filter-btn">Aggressive</button>
+      <button class="filter-btn">Leviathan</button>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="mobile" >🚤 Mobile Creatures (36)</button>
+      <button class="tab-btn" data-tab="stationary" >🌿 Stationary Life (56)</button>
+    </div>
+
+    <div id="tab-mobile" class="tab-content active">
+    <div class="creature-grid">
+            <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Abyssal_Tendril.png" alt="Abyssal Tendril" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Abyssal Tendril</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Abyssal Zone</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Colossal_Jelly.png" alt="Colossal Jelly" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-cautious">Cautious</span>
+          </div>
+          <h3 class="creature-name">Colossal Jelly</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Medium</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Shock_Jellyfish.png" alt="Shock Jellyfish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Shock Jellyfish</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hydrogen_Squid.png" alt="Hydrogen Squid" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Hydrogen Squid</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Jelly_Ring.png" alt="Jelly Ring" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Jelly Ring</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Blaze_Slug.png" alt="Blaze Slug" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Blaze Slug</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Four-Tooth_Tunicate.png" alt="Four-Tooth Tunicate" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Four-Tooth Tunicate</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Four-Wing_Tunicate.png" alt="Four-Wing Tunicate" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Four-Wing Tunicate</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Shock_Tunicate.png" alt="Shock Tunicate" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Shock Tunicate</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Tongue_Thief.png" alt="Tongue Thief" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Tongue Thief</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Guardian_Shrimp.png" alt="Guardian Shrimp" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Guardian Shrimp</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Jet_Shrimp.png" alt="Jet Shrimp" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Jet Shrimp</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Dead_Coral_Crab.png" alt="Dead Coral Crab" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Dead Coral Crab</h3>
+          <p class="creature-type">Crustacean — Neutral</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Periscope_Hermit.png" alt="Periscope Hermit" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Periscope Hermit</h3>
+          <p class="creature-type">Crustacean — Neutral</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Sand_Spearer.png" alt="Sand Spearer" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Sand Spearer</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Coral_Crab.png" alt="Coral Crab" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Coral Crab</h3>
+          <p class="creature-type">Crustacean — Neutral</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Horn_Shell.png" alt="Horn Shell" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Horn Shell</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Deep-Wing_Brood_Whale.png" alt="Deep-Wing Brood Whale" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-leviathan">Leviathan</span>
+          </div>
+          <h3 class="creature-name">Deep-Wing Brood Whale</h3>
+          <p class="creature-type">Leviathan Class — Apex Predator</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Deep Ocean</span>
+            <span>⚔️ <strong>Threat:</strong> Extreme</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Aqua_Slug.png" alt="Aqua Slug" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Aqua Slug</h3>
+          <p class="creature-type">Soft Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Half-Moon_Fish.png" alt="Half-Moon Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Half-Moon Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Four-Eye_Fish.png" alt="Four-Eye Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Four-Eye Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Big-Belly_Fish.png" alt="Big-Belly Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Big-Belly Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Bullethead.png" alt="Bullethead" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Bullethead</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Twin_Theta_Ray.png" alt="Twin Theta Ray" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Twin Theta Ray</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hoverthorn.png" alt="Hoverthorn" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-cautious">Cautious</span>
+          </div>
+          <h3 class="creature-name">Hoverthorn</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Mid-depth</span>
+            <span>⚔️ <strong>Threat:</strong> Medium</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Dark_Hoverthorn.png" alt="Dark Hoverthorn" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-cautious">Cautious</span>
+          </div>
+          <h3 class="creature-name">Dark Hoverthorn</h3>
+          <p class="creature-type">Fauna — Passive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Mid-depth</span>
+            <span>⚔️ <strong>Threat:</strong> Medium</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Bubble_Fish.png" alt="Bubble Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Bubble Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Full_Moon_Fish.png" alt="Full Moon Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Full Moon Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hound_Squid.png" alt="Hound Squid" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Hound Squid</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Blue_Moon_Fish.png" alt="Blue Moon Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Blue Moon Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Wax_Moon_Fish.png" alt="Wax Moon Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-safe">Safe</span>
+          </div>
+          <h3 class="creature-name">Wax Moon Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Low</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hammerhead_Fish.png" alt="Hammerhead Fish" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-cautious">Cautious</span>
+          </div>
+          <h3 class="creature-name">Hammerhead Fish</h3>
+          <p class="creature-type">Fish — Herbivore</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> All Depths</span>
+            <span>⚔️ <strong>Threat:</strong> Medium</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Shark_Group_Leviathan.png" alt="Shark Group Leviathan" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-leviathan">Leviathan</span>
+          </div>
+          <h3 class="creature-name">Shark Group Leviathan</h3>
+          <p class="creature-type">Leviathan Class — Apex Predator</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Deep Ocean</span>
+            <span>⚔️ <strong>Threat:</strong> Extreme</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Fly_Needle_Shark.png" alt="Fly Needle Shark" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Fly Needle Shark</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Gnaw_Shark.png" alt="Gnaw Shark" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Gnaw Shark</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Bone_Cracker_Shark.png" alt="Bone Cracker Shark" class="creature-img" loading="lazy">
+        <div class="creature-body">
+          <div class="creature-top">
+            <span class="creature-badge badge-danger">Aggressive</span>
+          </div>
+          <h3 class="creature-name">Bone Cracker Shark</h3>
+          <p class="creature-type">Fauna — Aggressive</p>
+          <div class="creature-meta">
+            <span>🐟 <strong>Habitat:</strong> Shallow Water</span>
+            <span>⚔️ <strong>Threat:</strong> High</span>
+          </div>
+        </div>
+      </article>
+    </div><!-- end mobile creature-grid -->
+    </div><!-- end tab-mobile -->
+
+    <div id="tab-stationary" class="tab-content">
+    <div class="creature-grid">
+
+
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Unknown_Living_Structure.png" alt="Unknown Living Structure" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Unknown Living Structure</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Unknown</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Peacock_Cocoon_Worm.png" alt="Peacock Cocoon Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Peacock Cocoon Worm</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Kink_Spout.png" alt="Kink Spout" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Kink Spout</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Wormless_Donut.png" alt="Wormless Donut" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Wormless Donut</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hundred_Leaf_Cocoon_Worm.png" alt="Hundred Leaf Cocoon Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Hundred Leaf Cocoon Worm</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Worm_Donut.png" alt="Worm Donut" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Worm Donut</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Acid_Cocoon_Worm.png" alt="Acid Cocoon Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-danger">Aggressive</span></div><h3 class="creature-name">Acid Cocoon Worm</h3><p class="creature-type">Flora — Aggressive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Whip_Sea_Willow.png" alt="Whip Sea Willow" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Whip Sea Willow</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Five_Star_Bag.png" alt="Five Star Bag" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Five Star Bag</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Mimic_Humus_Garden.png" alt="Mimic Humus Garden" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Mimic Humus Garden</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Crab_Tumor.png" alt="Crab Tumor" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Crab Tumor</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Dead_Rot_Jellyfish.png" alt="Dead Rot Jellyfish" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Dead Rot Jellyfish</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Garland_Jellyfish.png" alt="Garland Jellyfish" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Garland Jellyfish</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Stilt_Ball.png" alt="Stilt Ball" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Stilt Ball</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Titan_Driller.png" alt="Titan Driller" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Titan Driller</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Deep Zone</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Pseudo_Fission_Drum.png" alt="Pseudo Fission Drum" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Pseudo Fission Drum</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Kelp.png" alt="Kelp" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Kelp</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Shallow</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Feather_Kelp.png" alt="Feather Kelp" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Feather Kelp</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Shallow</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Fern_Kelp.png" alt="Fern Kelp" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Fern Kelp</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Shallow</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Wort_Algae.png" alt="Wort Algae" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Wort Algae</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Cabbage_Sprout_Root.png" alt="Cabbage Sprout Root" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Cabbage Sprout Root</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Cradle_Sprout_Root.png" alt="Cradle Sprout Root" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Cradle Sprout Root</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Lantern_Sprout_Root.png" alt="Lantern Sprout Root" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Lantern Sprout Root</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Mimic_Sea_Pillar.png" alt="Mimic Sea Pillar" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Mimic Sea Pillar</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Sea_Mango_Star.png" alt="Sea Mango Star" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Sea Mango Star</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Sea_Lychee.png" alt="Sea Lychee" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Sea Lychee</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Poison_Sponge.png" alt="Poison Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-danger">Aggressive</span></div><h3 class="creature-name">Poison Sponge</h3><p class="creature-type">Flora — Aggressive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Cowling_Sponge.png" alt="Cowling Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Cowling Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Apocalypse_Sponge.png" alt="Apocalypse Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-danger">Aggressive</span></div><h3 class="creature-name">Apocalypse Sponge</h3><p class="creature-type">Flora — Aggressive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Jack_Sponge.png" alt="Jack Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Jack Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Poison_Pipe_Cluster.png" alt="Poison Pipe Cluster" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-danger">Aggressive</span></div><h3 class="creature-name">Poison Pipe Cluster</h3><p class="creature-type">Flora — Aggressive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Aquarius_Sponge.png" alt="Aquarius Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Aquarius Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Duck_Coral_Sponge.png" alt="Duck Coral Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Duck Coral Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Stone_Coral_Sponge.png" alt="Stone Coral Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Stone Coral Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Macaroon_Sponge.png" alt="Macaroon Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Macaroon Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Giant_Shell_Star_Algae.png" alt="Giant Shell Star Algae" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Giant Shell Star Algae</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Curtain_Sea_Willow.png" alt="Curtain Sea Willow" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Curtain Sea Willow</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Heat_Dissipate_Coral.png" alt="Heat Dissipate Coral" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Heat Dissipate Coral</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Branch_Coral.png" alt="Branch Coral" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Branch Coral</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Noon_Sea_Willow.png" alt="Noon Sea Willow" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Noon Sea Willow</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Coral_Sponge.png" alt="Coral Sponge" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Coral Sponge</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Coral_Ball.png" alt="Coral Ball" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Coral Ball</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Monitor_Sea_Willow.png" alt="Monitor Sea Willow" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Monitor Sea Willow</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Cage_Sea_Willow.png" alt="Cage Sea Willow" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Cage Sea Willow</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Tall_Mushroom.png" alt="Tall Mushroom" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Tall Mushroom</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Dragon_Scale_Coral.png" alt="Dragon Scale Coral" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Dragon Scale Coral</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Passage_Pillar.png" alt="Passage Pillar" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Passage Pillar</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Icebox_Worm.png" alt="Icebox Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Icebox Worm</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Cold Zone</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Spike_Shell_Pipe_Worm.png" alt="Spike Shell Pipe Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Spike Shell Pipe Worm</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Oxygen_Tunic.png" alt="Oxygen Tunic" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Oxygen Tunic</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hanging_Salpa.png" alt="Hanging Salpa" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Hanging Salpa</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Hundred_Arm_Tunic.png" alt="Hundred Arm Tunic" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Hundred Arm Tunic</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Giant_Jaw_Shell.png" alt="Giant Jaw Shell" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-cautious">Cautious</span></div><h3 class="creature-name">Giant Jaw Shell</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Fire_Demon_Antler.png" alt="Fire Demon Antler" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Fire Demon Antler</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> Volcanic Zone</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Occupying_Moss.png" alt="Occupying Moss" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Occupying Moss</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+      <article class="creature-card">
+        <img src="../../images/creatures_gamersky/creature_Worm.png" alt="Worm" class="creature-img" loading="lazy">
+        <div class="creature-body"><div class="creature-top"><span class="creature-badge badge-safe">Safe</span></div><h3 class="creature-name">Worm</h3><p class="creature-type">Flora — Passive</p><div class="creature-meta"><span>🌿 <strong>Type:</strong> Stationary</span><span>📍 <strong>Zone:</strong> All Zones</span></div></div>
+      </article>
+    </div><!-- end stationary creature-grid -->
+    </div><!-- end tab-stationary -->
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/header.js"></script>
+</body>
+</html>

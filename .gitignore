@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Temp files
+*.tmp
+.cache/
+
+# Claude
+.claude/
+
+# Cloudflare
+.cloudflare/
+
+# macOS
+*.icloud
+
+# Backup files
+*.bak
+*~
+
+# Local development
+.dev.vars
+.vercel/
+
+# Build artifacts
+*.tgz
+*.tar.gz

@@ -1,0 +1,9 @@
+{
+  "name": "Subnautica 2 Wiki",
+  "short_name": "Subnautica2 Wiki",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#00d4aa",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+}

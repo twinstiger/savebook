@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Gallery — Subnautica 2 Wiki</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/media/gallery.html">
+  <meta name="description" content="Subnautica 2 official trailers and gameplay screenshots.">
+  <meta property="og:title" content="Media Gallery — Subnautica 2 Wiki">
+  <meta property="og:description" content="Official trailers and gameplay screenshots from Subnautica 2 Early Access.">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/media/gallery.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Media Gallery — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Official trailers and gameplay screenshots.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="robots" content="index, follow">
+  <style>
+    body { margin: 0; background: var(--bg-primary); color: var(--text); font-family: 'Inter', sans-serif; }
+
+    /* === Page header === */
+    .page-header { max-width: 1100px; margin: 2.5rem auto 1.5rem; padding: 0 1.5rem; }
+    .page-header .eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin: 0 0 0.5rem; }
+    .page-header p { color: var(--text-muted, #5a8090); font-size: 0.9rem; margin: 0; }
+
+    /* === Carousel === */
+    .gallery-carousel { position: relative; width: 100%; max-width: 1100px; margin: 0 auto 1.5rem; height: 0; padding-bottom: 75%; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); background: #000; }
+    .gallery-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s; display: none; }
+    .gallery-slide.active { opacity: 1; display: block; }
+    .gallery-slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+    .gallery-slide iframe { width: 100%; height: 100%; border: none; display: block; object-fit: contain; background: #000; }
+    .gallery-slide video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+
+    /* Arrows */
+    .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); border: none; color: white; font-size: 1.4rem; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 8px; z-index: 10; transition: background 0.2s; line-height: 1; }
+    .gallery-arrow:hover { background: rgba(0,212,170,0.6); }
+    .gallery-arrow.prev { left: 0.75rem; }
+    .gallery-arrow.next { right: 0.75rem; }
+
+    /* Dots */
+    .gallery-dots { position: absolute; bottom: 0.75rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.4rem; z-index: 10; }
+    .gallery-dot { width: 8px; height: 8px; border-radius: 50%; background: white; opacity: 0.4; cursor: pointer; transition: opacity 0.2s; }
+    .gallery-dot.active { opacity: 0.9; }
+
+    /* Label */
+    .gallery-label { position: absolute; top: 0.75rem; right: 0.75rem; z-index: 10; }
+    .gallery-label span { background: rgba(0,0,0,0.65); color: white; font-size: 0.7rem; padding: 0.25rem 0.6rem; border-radius: 6px; display: block; }
+
+    /* Thumb strip */
+    .gallery-thumbs { display: flex; gap: 6px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto 2.5rem; padding: 0 1.5rem; }
+    .gallery-thumb { height: 64px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; object-fit: cover; transition: all 0.2s; flex: 1; min-width: 80px; }
+    .gallery-thumb:hover { opacity: 0.9; }
+    .gallery-thumb.active { border-color: var(--accent, #00d4aa); opacity: 1; }
+
+    /* Sections */
+    .gallery-section { max-width: 1100px; margin: 0 auto 3rem; padding: 0 1.5rem; }
+    .gallery-section h2 { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; }
+    .gallery-card { position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; aspect-ratio: 16/9; background: var(--bg-card); transition: transform 0.2s; }
+    .gallery-card:hover { transform: scale(1.02); }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-card-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 1.5rem 0.5rem 0.4rem; font-size: 0.72rem; color: white; }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="var(--accent)"/>
+          <text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text>
+        </svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="../guides/index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="../guides/survival-guide.html">Survival Guide</a></li>
+              <li><a href="../guides/story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="../guides/biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="../guides/creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="../guides/item-database.html" class="nav-item">Items</a></li>
+          <li><a href="../guides/vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="gallery.html" class="active">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="eyebrow">Media</div>
+      <h1>Subnautica 2 Media Gallery</h1>
+      <p>Official trailers and gameplay screenshots from Subnautica 2 Early Access.</p>
+    </div>
+
+    <!-- Videos -->
+    <div class="gallery-section">
+      <h2>Videos</h2>
+      <div class="gallery-carousel" id="videoCarousel">
+        <div class="gallery-slide active" data-type="youtube" data-src="WS0vTRl_2PQ">
+          <iframe src="https://www.youtube.com/embed/WS0vTRl_2PQ?enablejsapi=1" allowfullscreen></iframe>
+        </div>
+        <div class="gallery-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1862467419/5631393dd23dad76bcb0c7917c2f60891948158a/1776997487/hls_264_master.m3u8?t=1777561225">
+          <video id="galleryVideo1" controls></video>
+        </div>
+        <div class="gallery-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1381761660/62855c0fcad0dee2938dfe86b5894cd342f3e23f/1778732086/hls_264_master.m3u8?t=1778770818">
+          <video id="galleryVideo2" controls></video>
+        </div>
+        <button class="gallery-arrow prev" id="videoPrev">&#8249;</button>
+        <button class="gallery-arrow next" id="videoNext">&#8250;</button>
+        <div class="gallery-dots" id="videoDots"></div>
+        <div class="gallery-label"><span id="videoLabel">Official Trailer</span></div>
+      </div>
+      <div class="gallery-thumbs" id="videoThumbs"></div>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="gallery-section">
+      <h2>Screenshots</h2>
+      <div class="gallery-carousel" id="ssCarousel">
+        <div class="gallery-slide active"><img src="../../images/carousel/screenshots/ss01.jpg" alt="Screenshot 1"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss02.jpg" alt="Screenshot 2"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss03.jpg" alt="Screenshot 3"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss04.jpg" alt="Screenshot 4"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss05.jpg" alt="Screenshot 5"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss06.jpg" alt="Screenshot 6"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss07.jpg" alt="Screenshot 7"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss08.jpg" alt="Screenshot 8"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss09.jpg" alt="Screenshot 9"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss10.jpg" alt="Screenshot 10"></div>
+        <div class="gallery-slide"><img src="../../images/carousel/screenshots/ss11.jpg" alt="Screenshot 11"></div>
+        <button class="gallery-arrow prev" id="ssPrev">&#8249;</button>
+        <button class="gallery-arrow next" id="ssNext">&#8250;</button>
+        <div class="gallery-dots" id="ssDots"></div>
+        <div class="gallery-label"><span id="ssLabel">Screenshot 1</span></div>
+      </div>
+      <div class="gallery-thumbs" id="ssThumbs"></div>
+    </div>
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/header.js"></script>
+  <script>
+  // === Video carousel ===
+  var vidTotal = 3;
+  var vidLabels = ['Official Trailer', '官方宣传片 2 (2026.04.30)', 'EA Launch Trailer (2026.05.14)'];
+  var vidThumbs = [
+    '../../images/carousel/trailer1_thumb.jpg',
+    '../../images/carousel/trailer2_thumb.jpg',
+    '../../images/carousel/trailer3_thumb.jpg'
+  ];
+  var vidCurrent = 0;
+
+  function videoGo(n) {
+    var slides = document.querySelectorAll('#videoCarousel .gallery-slide');
+    var dots = document.querySelectorAll('#videoCarousel .gallery-dot');
+    var thumbs = document.querySelectorAll('#videoThumbs .gallery-thumb');
+    slides.forEach(function(s, i) {
+      if (i === n) { s.style.display = 'block'; s.style.opacity = '1';
+        if (s.dataset.type === 'steam' && !s.querySelector('video').src) {
+          s.querySelector('video').src = s.dataset.src;
+        }
+      } else { s.style.opacity = '0'; setTimeout(function() { if (i !== n) s.style.display = 'none'; }, 400);
+        var v = s.querySelector('video'); if (v) v.pause();
+      }
+    });
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+    thumbs.forEach(function(t, i) {
+      t.classList.toggle('active', i === n);
+      t.style.opacity = i === n ? '1' : '0.6';
+      t.style.borderColor = i === n ? 'var(--accent)' : 'transparent';
+    });
+    document.getElementById('videoLabel').textContent = vidLabels[n] || '';
+    vidCurrent = n;
+  }
+  function videoNext() { videoGo((vidCurrent + 1) % vidTotal); }
+  function videoPrev() { videoGo((vidCurrent - 1 + vidTotal) % vidTotal); }
+  document.getElementById('videoNext').addEventListener('click', videoNext);
+  document.getElementById('videoPrev').addEventListener('click', videoPrev);
+
+  var vd = document.getElementById('videoDots');
+  for (var i = 0; i < vidTotal; i++) {
+    var d = document.createElement('span'); d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.onclick = function(i) { return function() { videoGo(i); }; }(i); vd.appendChild(d);
+  }
+  var vt = document.getElementById('videoThumbs');
+  for (var i = 0; i < vidTotal; i++) {
+    var img = document.createElement('img'); img.src = vidThumbs[i];
+    img.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
+    img.onclick = function(i) { return function() { videoGo(i); }; }(i);
+    img.title = vidLabels[i]; vt.appendChild(img);
+  }
+
+  // === Screenshot carousel ===
+  var ssTotal = 11;
+  var ssLabels = [];
+  for (var i = 1; i <= 11; i++) ssLabels.push('Screenshot ' + i);
+  var ssThumbs = [];
+  for (var i = 1; i <= 11; i++) ssThumbs.push('../../images/carousel/screenshots/ss' + String(i).padStart(2,'0') + '.jpg');
+  var ssCurrent = 0;
+
+  function ssGo(n) {
+    var slides = document.querySelectorAll('#ssCarousel .gallery-slide');
+    var dots = document.querySelectorAll('#ssCarousel .gallery-dot');
+    var thumbs = document.querySelectorAll('#ssThumbs .gallery-thumb');
+    slides.forEach(function(s, i) {
+      if (i === n) { s.style.display = 'block'; s.style.opacity = '1'; }
+      else { s.style.opacity = '0'; setTimeout(function() { if (i !== n) s.style.display = 'none'; }, 400); }
+    });
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+    thumbs.forEach(function(t, i) {
+      t.classList.toggle('active', i === n);
+      t.style.opacity = i === n ? '1' : '0.6';
+      t.style.borderColor = i === n ? 'var(--accent)' : 'transparent';
+    });
+    document.getElementById('ssLabel').textContent = ssLabels[n] || '';
+    ssCurrent = n;
+  }
+  function ssNext() { ssGo((ssCurrent + 1) % ssTotal); }
+  function ssPrev() { ssGo((ssCurrent - 1 + ssTotal) % ssTotal); }
+  document.getElementById('ssNext').addEventListener('click', ssNext);
+  document.getElementById('ssPrev').addEventListener('click', ssPrev);
+  setInterval(ssNext, 7000);
+
+  var sd = document.getElementById('ssDots');
+  for (var i = 0; i < ssTotal; i++) {
+    var d = document.createElement('span'); d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.onclick = function(i) { return function() { ssGo(i); }; }(i); sd.appendChild(d);
+  }
+  var st = document.getElementById('ssThumbs');
+  for (var i = 0; i < ssTotal; i++) {
+    var img = document.createElement('img'); img.src = ssThumbs[i];
+    img.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
+    img.onclick = function(i) { return function() { ssGo(i); }; }(i);
+    img.title = ssLabels[i]; st.appendChild(img);
+  }
+  </script>
+</body>
+</html>

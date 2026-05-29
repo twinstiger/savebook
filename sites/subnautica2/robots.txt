@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_cloudflare/
+
+Sitemap: https://subnautica2.savebook.net/sitemap.xml

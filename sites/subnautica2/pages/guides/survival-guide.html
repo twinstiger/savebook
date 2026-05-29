@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survival Guide — Subnautica 2 Wiki</title>
+
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="author" content="SaveBook">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/survival-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Survival Guide — Subnautica 2 Wiki">
+  <meta property="og:description" content="Essential Subnautica 2 survival tips: oxygen, food & water, temperature, disease, first steps.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/survival-guide.html">
+  <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta property="og:site_name" content="Subnautica 2 Wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Survival Guide — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Essential Subnautica 2 survival tips: oxygen, food & water, temperature, disease, first steps.">
+  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
+  <meta name="description" content="Complete first-dive survival guide for Subnautica 2. Step-by-step instructions: craft water, get Scanner, unlock Digest, build your first base.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .guide-hero { position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 2.5rem; aspect-ratio: 16/6; background: linear-gradient(135deg,#0f2a4a,#0a1628); display: flex; align-items: flex-end; }
+    .guide-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+    .guide-hero-overlay { position: relative; z-index: 1; padding: 2rem 2rem 1.5rem; background: linear-gradient(transparent,rgba(10,22,40,0.9)); width: 100%; }
+    .guide-hero-title { font-size: clamp(1.3rem,3vw,2rem); font-weight: 900; margin-bottom: 0.5rem; }
+    .guide-hero-desc { color: #a8c8d8; font-size: 0.9rem; max-width: 600px; }
+    .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+    .toc-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
+    .toc-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 2rem; }
+    .toc-list a { font-size: 0.85rem; color: #a8c8d8; padding: 0.25rem 0; }
+    .toc-list a:hover { color: var(--accent); }
+    .step-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; transition: border-color 0.2s; }
+    .step-card:hover { border-color: var(--accent); }
+    .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--accent); color: #0a1628; border-radius: 50%; font-size: 0.9rem; font-weight: 900; flex-shrink: 0; }
+    .step-title { font-size: 1.1rem; font-weight: 800; }
+    .step-objectives { margin: 1rem 0; padding: 1rem 1.25rem; background: var(--bg-secondary); border-radius: 8px; border-left: 3px solid var(--accent); }
+    .step-objectives-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
+    .step-objectives li { font-size: 0.85rem; color: #a8c8d8; margin-bottom: 0.35rem; }
+    .tip-box { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    .tip-box::before { content: '💡 Tip: '; font-weight: 700; color: var(--accent); }
+    .tip-box { color: #a8c8d8; font-size: 0.85rem; }
+    .craft-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .craft-table th { text-align: left; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+    .craft-table td { padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #a8c8d8; border-bottom: 1px solid var(--border); }
+    .craft-table tr:hover td { background: var(--bg-secondary); }
+  </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="var(--accent)"/>
+          <text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text>
+        </svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+            <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="survival-guide.html">Survival Guide</a></li>
+              <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="item-database.html" class="nav-item">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
+        </ul>
+      </nav></div>
+  </header>
+  <main class="container" style="max-width:920px">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <a href="index.html">Guides</a> <span>/</span> <span>Survival Guide</span></div>
+
+    <div class="guide-hero">
+      <div class="guide-hero-overlay"><img src="../../images/wiki-hero-img.jpeg" alt="Subnautica 2"  loading="eager">
+        <h1 class="guide-hero-title">Survival Guide</h1>
+        <p class="guide-hero-desc">Everything you need to survive your first hour on Proteus. Four dives, zero spoilers.</p>
+      </div>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">In This Guide</div>
+      <div class="toc-list">
+        <a href="#first-dive">① First Dive — Secure basics</a>
+        <a href="#second-dive">② Second Dive — Get the Scanner</a>
+        <a href="#third-dive">③ Third Dive — Solve food &amp; Oxygen</a>
+        <a href="#fourth-dive">④ Fourth Dive — Build your base</a>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div id="first-dive" class="step-card">
+      <div class="step-header">
+        <span class="step-num">1</span>
+        <span class="step-title">First Dive — Secure Your Basics</span>
+      </div>
+      <p>Your pod has landed in shallow water. Oxygen is fine for now, but thirst and hunger are real threats. Don't go deep — yet.</p>
+      <div class="step-objectives">
+        <div class="step-objectives-title">Objectives</div>
+        <ul>
+          <li>Collect 3× Water Slugs from nearby rocks</li>
+          <li>Collect 3× Titanium from the debris field around your pod</li>
+          <li>Craft Water at your pod's Fabricator</li>
+        </ul>
+      </div>
+      <p><strong>Water Slugs</strong> are the only freshwater source in the early game. Find them clinging to rocks within 30m of your pod — they look like small orange cones. Grab 3, then use the <strong>Fabricator</strong> at your pod to process them into <strong>Water</strong>.</p>
+      <p><strong>Titanium</strong> is everywhere. Pick up any rock debris. You'll need 3 titanium to unlock the Survival Multitool blueprint, so keep collecting.</p>
+      <div class="tip-box">Thirst kills faster than hunger. Always secure water first before going on long dives.</div>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="second-dive" class="step-card">
+      <div class="step-header">
+        <span class="step-num">2</span>
+        <span class="step-title">Second Dive — Build Your Scanner</span>
+      </div>
+      <p>This is the most important tool in Subnautica 2. Without the Scanner, you can't unlock blueprints. Everything else depends on this.</p>
+      <div class="step-objectives">
+        <div class="step-objectives-title">Objectives</div>
+        <ul>
+          <li>Swim directly below your pod into the cave opening</li>
+          <li>Collect: 2× Titanium, 2× Copper, 2× Quartz (from the pink/orange coral formations)</li>
+          <li>Collect Acidic Raion Pods from purple/green plants (for Battery)</li>
+          <li>Scan the Scanner Fragment at the nearby coral arch (Angel Comb)</li>
+        </ul>
+      </div>
+      <p>Swim straight down from your pod. You'll see a cave entrance — this is your first real landmark. Inside you'll find <strong>Quartz</strong> (pink coral), <strong>Copper</strong> deposits, and <strong>Acidic Raion Pods</strong> growing on green plants.</p>
+      <p>Once you have <strong>2× Titanium + 2× Quartz + 1× Acidic Raion Pod</strong>, you can craft the <strong>Scanner</strong> at your pod's Fabricator. This unlocks 80% of the advanced blueprints.</p>
+      <table class="craft-table">
+        <tr><th>Item</th><th>Recipe</th><th>Purpose</th></tr>
+        <tr><td>Scanner</td><td>2 Titanium + 2 Quartz + 1 Acidic Raion Pod</td><td>Unlock blueprints</td></tr>
+        <tr><td>Basic Battery</td><td>2 Copper + 2 Acidic Raion Pod</td><td>Power your tools</td></tr>
+      </table>
+      <div class="tip-box">The coral arch visible from your pod's surface is the Angel Comb. Swim there to find quartz AND the Scanner fragment to scan.</div>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="third-dive" class="step-card">
+      <div class="step-header">
+        <span class="step-num">3</span>
+        <span class="step-title">Third Dive — Unlock Digest &amp; Solve Food</span>
+      </div>
+      <p>Your hunger will spike. Alien fish don't digest without the right ability. This dive gets you to Angel Comb and unlocks the Digest Biomod.</p>
+      <div class="step-objectives">
+        <div class="step-objectives-title">Objectives</div>
+        <ul>
+          <li>Swim to Angel Comb (~160m NE of pod) — look for the large pink plant formation</li>
+          <li>Interact with it to unlock <strong>Digest</strong> ability</li>
+          <li>Collect 2× Lucifer Rotsacs (orange spheres) for Rubber</li>
+          <li>Collect Silver Ore (290-350m north, in a shallow cave)</li>
+          <li>Craft Flippers and Standard O2 Tank</li>
+        </ul>
+      </div>
+      <p><strong>Angel Comb</strong> is the large pink plant structure northeast of your pod. Swim there, interact with it, and you'll unlock the <strong>Digest</strong> ability — this lets you eat alien fish for real nutrition. Without it, fish give only water and no food value.</p>
+      <p><strong>Lucifer Rotsacs</strong> (orange spheres) are found near Angel Comb. Collect 2 to craft <strong>Rubber</strong>, which unlocks Flippers and the Standard O2 Tank.</p>
+      <p>Navigate north to find a shallow cave with <strong>Silver Ore</strong> deposits. You'll need Silver to complete your early gear upgrades.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div id="fourth-dive" class="step-card">
+      <div class="step-header">
+        <span class="step-num">4</span>
+        <span class="step-title">Fourth Dive — Build Your First Base</span>
+      </div>
+      <p>Time to go stationary. Find 2× Flashlights and 2× Habitat Builder scans, then start building.</p>
+      <div class="step-objectives">
+        <div class="step-objectives-title">Objectives</div>
+        <ul>
+          <li>Find 2× Flashlight Blueprints (Welcome Center and Angel Comb area)</li>
+          <li>Find 2× Habitat Builder Blueprints (Welcome Center + Angel Comb)</li>
+          <li>Craft Habitat Builder and set up your first base</li>
+        </ul>
+      </div>
+      <p><strong>Welcome Center</strong> is ~85m southeast of your pod. It has power modules and scan targets. The <strong>Habitat Builder</strong> is your key to permanent base construction.</p>
+      <p>Build your first base near Angel Comb — it's safe, resource-rich, and centrally located for early exploration.</p>
+      <table class="craft-table">
+        <tr><th>Equipment</th><th>Recipe</th><th>Benefit</th></tr>
+        <tr><td>Flippers</td><td>2 Rubber + 1 Titanium</td><td>+50% swim speed</td></tr>
+        <tr><td>Standard O2 Tank</td><td>2 Rubber + 1 Titanium</td><td>+30s oxygen capacity</td></tr>
+        <tr><td>Habitat Builder</td><td>2 Titanium + 1 Copper + 1 Gold</td><td>Place base modules</td></tr>
+      </table>
+    </div>
+  </main>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/header.js"></script>
+</body>
+</html>
