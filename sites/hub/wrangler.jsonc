@@ -1,0 +1,6 @@
+{
+ "name": "savebook-main",
+ "assets": {
+ "directory": "../../dist/hub"
+ }
+}

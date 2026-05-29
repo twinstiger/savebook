@@ -1,0 +1,6 @@
+{
+ "name": "subnautica2",
+ "assets": {
+ "directory": "../../dist/subnautica2"
+ }
+}
