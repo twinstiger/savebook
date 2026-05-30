@@ -173,8 +173,7 @@ function injectIncludes(html, siteName, filePath) {
 
     // Remove existing header block
     out = out.replace(/<header[\s\S]*?<\/header>\s*/i, '');
-    // Remove mobile nav that follows header
-    out = out.replace(/<nav class="nav-mobile"[\s\S]*?<\/nav>\s*/i, '');
+    // Note: Don't remove mobile nav here anymore - it's included in header.html
 
     // Insert after <body> tag
     out = out.replace(/<body[^>]*>/i, `$&\n${adjustedHeader.trim()}`);
